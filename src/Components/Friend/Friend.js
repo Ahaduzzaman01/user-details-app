@@ -1,22 +1,24 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
+import "./Friend.css";
 
 const Friend = (props) => {
-    const {name, email, id} = props.friend;
+  const { name, email, id } = props.friend;
 
-    const friendStyle = {
-        border: '2px solid red',
-        margin: '20px',
-        padding: '20px',
-        backgroundColor: 'lightgrey',
-    }
-    return (
-        <div style={friendStyle}>
-            <h1>Name: {name}</h1>
-            <h1>Email: {email}</h1>
-            <p><Link to={`/details/${id}`}>Show details of {id}</Link></p>
-        </div>
-    );
+  return (
+    <div className="card">
+      <div className="title">
+        <h5 className="fw-bold">Name: {name}</h5>
+      </div>
+      <div className="content mt-2">
+        <p>Email: {email}</p>
+        <Link to={`/details/${id}`} className="btn details-btn">
+          Show details
+        </Link>
+      </div>
+      <div className="circle"></div>
+    </div>
+  );
 };
 
 export default Friend;
